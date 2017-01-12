@@ -979,7 +979,7 @@ Ltac UseTransfer :=
   destruct res; auto. apply eagree_set_undef; auto.
   eapply magree_storebytes_left; eauto.
   clear H3.
-  exploit aaddr_arg_sound; eauto. 
+  exploit aaddr_arg_sound; eauto.
   intros (bc & A & B & C).
   intros. eapply nlive_contains; eauto.
   erewrite Mem.loadbytes_length in H0 by eauto.

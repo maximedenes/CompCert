@@ -1057,14 +1057,14 @@ Proof.
     add_composite_definitions env l = OK env' ->
     env'!id = Some co ->
     env!id = Some co \/ In (Composite id (co_su co) (co_members co) (co_attr co)) l).
-  { induction l; simpl; intros. 
+  { induction l; simpl; intros.
   - inv H; auto.
   - destruct a; monadInv H. exploit IHl; eauto.
     unfold composite_of_def in EQ. destruct (env!id0) eqn:E; try discriminate.
     destruct (complete_members env m) eqn:C; simplify_eq EQ. clear EQ; intros EQ.
     rewrite PTree.gsspec. intros [A|A]; auto.
     destruct (peq id id0); auto.
-    inv A. auto.
+    inv A. rewrite <- H0; auto.
   }
   intros. exploit REC; eauto. rewrite PTree.gempty. intuition congruence.
 Qed.
@@ -1519,7 +1519,7 @@ Local Transparent Linker_program.
   - intros. exploit link_match_fundef; eauto. intros (tf & A & B). exists tf; auto.
   - intros.
     Local Transparent Linker_types.
-    simpl in *. destruct (type_eq v1 v2); inv H4. subst. exists v; rewrite dec_eq_true; auto.
+    simpl in *. destruct (type_eq v1 v2); inv H4. exists v; rewrite dec_eq_true; auto.
   - eauto.
   - eauto.
   - eauto.

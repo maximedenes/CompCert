@@ -1,3 +1,4 @@
+Unset Bracketing Last Introduction Pattern.
 (**
 This file is part of the Flocq formalization of floating-point
 arithmetic in Coq: http://flocq.gforge.inria.fr/
@@ -416,6 +417,7 @@ Theorem is_finite_Bopp :
   is_finite (Bopp opp_nan x) = is_finite x.
 Proof.
 intros opp_nan [| | |] ; try easy.
+intros s p1.
 simpl.
 now case opp_nan.
 Qed.
@@ -446,6 +448,7 @@ Theorem is_finite_Babs :
 Proof.
   intros abs_nan [| | |] ; try easy.
   simpl.
+  intros s p1.
   now case abs_nan.
 Qed.
 
