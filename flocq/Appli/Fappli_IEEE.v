@@ -47,7 +47,7 @@ End AnyRadix.
 
 Section Binary.
 
-Implicit Arguments exist [[A] [P]].
+Arguments exist [A] [P] _ _.
 
 (** [prec] is the number of bits of the mantissa including the implicit one;
     [emax] is the exponent of the infinities.
@@ -417,7 +417,7 @@ Theorem is_finite_Bopp :
   is_finite (Bopp opp_nan x) = is_finite x.
 Proof.
 intros opp_nan [| | |] ; try easy.
-intros s pl.
+intros s p1.
 simpl.
 now case opp_nan.
 Qed.
@@ -447,8 +447,8 @@ Theorem is_finite_Babs :
   is_finite (Babs abs_nan x) = is_finite x.
 Proof.
   intros abs_nan [| | |] ; try easy.
-  intros s pl.
   simpl.
+  intros s p1.
   now case abs_nan.
 Qed.
 

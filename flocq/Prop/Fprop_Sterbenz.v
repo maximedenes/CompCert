@@ -75,7 +75,7 @@ unfold canonic_exp.
 replace exy with (fexp (Zmin ex ey)).
 apply monotone_exp.
 now apply ln_beta_le_bpow.
-replace exy with (Fexp (Fplus beta fx fy)) by exact (f_equal Fexp Pxy).
+replace exy with (Fexp (Fplus beta fx fy)).
 rewrite Fexp_Fplus.
 simpl. clear -monotone_exp.
 apply sym_eq.
@@ -86,6 +86,8 @@ apply Zmin_r.
 apply monotone_exp.
 apply Zlt_le_weak.
 now apply Zgt_lt.
+rewrite Pxy.
+reflexivity.
 Qed.
 
 Theorem generic_format_plus_weak :

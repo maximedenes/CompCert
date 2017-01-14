@@ -135,6 +135,7 @@ Ltac mydestr :=
   | [ |- match ?x with Some _ => _ | None => _ end = Some _ -> _ ] => destruct x eqn:?; mydestr
   | [ |- match ?x with true => _ | false => _ end = Some _ -> _ ] => destruct x eqn:?; mydestr
   | [ |- match ?x with left _ => _ | right _ => _ end = Some _ -> _ ] => destruct x; mydestr
+  | [ H : Some _ = Some _ |-  _ ] => inv H
   | _ => idtac
   end.
 
