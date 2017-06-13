@@ -17,6 +17,7 @@
     used throughout the development.  It complements the Coq standard
     library. *)
 
+Require Export FunInd.
 Require Export ZArith.
 Require Export Znumtheory.
 Require Export List.
