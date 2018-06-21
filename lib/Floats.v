@@ -794,7 +794,7 @@ Proof.
   }
   assert (EQ: Int64.signed n * 2 = int_round_odd (Int64.unsigned x) 1).
   {
-  symmetry. apply (int_round_odd_bits 53 1024). omega.
+  symmetry. apply (int_round_odd_bits 0 0). omega.
   intros. rewrite NB2 by omega. replace i with 0 by omega. auto.
   rewrite NB2 by omega. rewrite dec_eq_false by omega. rewrite dec_eq_true.
   rewrite orb_comm. unfold Int64.testbit. change (2^1) with 2.

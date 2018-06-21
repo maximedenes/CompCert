@@ -597,9 +597,7 @@ revert H1. clear -H2.
 rewrite Zpos_digits2_pos.
 unfold fexp, FLT_exp.
 generalize (Zdigits radix2 (Zpos mx)).
-intros ; zify ; subst.
-clear -H H2. clearbody emin.
-omega.
+lia.
 Qed.
 
 Theorem abs_B2R_lt_emax :

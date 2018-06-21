@@ -104,8 +104,6 @@ Proof.
   simpl. tauto.
   rewrite IHok. intuition.
   assert (l0 <= x < h0 \/ l <= x < h) by xomega. tauto.
-  left; xomega.
-  left; xomega.
 Qed.
 
 Lemma add_ok:
